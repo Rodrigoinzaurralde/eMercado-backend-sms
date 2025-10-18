@@ -15,8 +15,8 @@ app.post('/enviar-sms', (req, res) => {
     const { telefono, mensaje } = req.body;
     client.messages.create({
         body: mensaje,
-        from: 'whatsapp:+14155238886', 
-        to: `whatsapp:${telefono}`  
+        from: '+15075165809', // Número Twilio SMS
+        to: telefono
     })
     .then(message => res.json({ sid: message.sid }))
     .catch(error => res.status(500).json({ error: error.message }));
